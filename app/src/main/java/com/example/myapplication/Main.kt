@@ -62,7 +62,7 @@ fun main() {
     }
     println()
     println(k)
-} задание 4 вариант 6 */
+} задание 4 вариант 6  */
 
 fun  main(){
         val mas= arrayOf("g", "n","n","g")
