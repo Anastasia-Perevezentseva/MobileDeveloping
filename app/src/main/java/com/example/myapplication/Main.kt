@@ -65,7 +65,7 @@ fun main() {
 } задание 4 вариант 6  */
 
 fun  main(){
-        val mas= arrayOf("g", "n","n","g")
+        val mas= arrayOf("g", "в","n","g")
     var k=0
     var j=3
     for(n in 0..1){
@@ -79,7 +79,11 @@ fun  main(){
 
 
     }
-
+    if(k==2)
+        print("Является палиндромом")
+    else{
+        print("Не является палиндромом")
+    }
     print(k)
 }
 
