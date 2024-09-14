@@ -1,16 +1,22 @@
+@file:Suppress("UNREACHABLE_CODE")
+
 package com.example.myapplication
 
-class lab2 {
-    fun task1(nember:Int):Int {
-        if(nember%2==0){
-        return nember}
-        else{
-            return nember*2
-        }
+
+
+fun sum(operand1: Int): Int {
+    if (operand1 % 2 == 0) {
+        return operand1
+
+    } else {return operand1 * 2
+
     }
+}
+
         fun main(){
-           var number = 54
-            task1((number))
-            print(number)
+           val number = 75
+
+            val g=sum(number)
+            print(g)
         }
-    }
+
