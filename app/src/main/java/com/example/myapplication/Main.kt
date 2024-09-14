@@ -42,24 +42,24 @@ fun main() {
 
 }
 */
-fun main(){
-    var numberq = 154
+fun main() {
+    var numberq = 685
 
-        var des = numberq % 10
-        var sot = numberq % 100 / 10
-        var tis = numberq / 100
-        print("$des,$sot,$tis")
-    var n=0
-    var ten=10
-    for(numberq in 1 .. 3){
- var perem=numberq/ten%100
+    var des = numberq % 10
+    var sot = numberq % 100 / 10
+    var tis = numberq / 100
+    print("$des,$sot,$tis")
 
-           n++
 
+    val numbers = arrayOf(des, sot, tis)
+    var k = 0
+    for (n in 1..3) {
+        if (numbers[n]> 3 && numbers[n] < 8) {
+            k++
         }
-    println(n)
-        }
-
+        println(n)
+    }
+}
 
 
 
