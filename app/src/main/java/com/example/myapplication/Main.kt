@@ -41,9 +41,10 @@ fun main() {
     var day = date.dayOfMonth
 
 }
+ задача 3 вариант №18
 */
-fun main() {
-    var numberq = 685
+/*/fun main() {
+    var numberq = 638
 
     var des = numberq % 10
     var sot = numberq % 100 / 10
@@ -53,12 +54,33 @@ fun main() {
 
     val numbers = arrayOf(des, sot, tis)
     var k = 0
-    for (n in 1..3) {
+    for (n in 0..2) {
         if (numbers[n]> 3 && numbers[n] < 8) {
             k++
         }
-        println(n)
+
     }
+    println()
+    println(k)
+} задание 4 вариант 6 */
+
+fun  main(){
+        val mas= arrayOf("g", "n","n","g")
+    var k=0
+    var j=3
+    for(n in 0..1){
+
+        println("${mas[n]},${mas[j]}")
+        if (mas[n] == mas[j]) {
+            k++
+
+        }
+        j=j-1
+
+
+    }
+
+    print(k)
 }
 
 
