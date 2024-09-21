@@ -4,11 +4,12 @@ package com.example.myapplication
 
 
 
-fun sum(operand1: Int): Int {
-    if (operand1 % 2 == 0) {
-        return operand1
+fun sum(operand1: Int)  : Int {
+    return if (operand1 % 2 == 0) {
+        operand1
 
-    } else {return operand1 * 2
+    } else {
+        operand1 * 2
 
     }
 }
