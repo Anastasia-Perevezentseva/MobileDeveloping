@@ -2,26 +2,29 @@ package com.example.helloapp.com.example.myapplication
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,74 +32,46 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.myapplication.R
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
-fun ChatScreen() {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Чат") },
-
-            )
-        }
-    ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier.padding(paddingValues)
-        ) {
-            items(100) { index ->
-                Text(
+fun ChatMessage() {
+    LazyColumn()
+    {
+        items(100) { index ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    contentDescription = "User  Avatar",
                     modifier = Modifier
-                        .background(
-                            if (index % 2 == 0) Color.LightGray
-                            else Color.White
-                        )
-                        .padding(10.dp)
-                        .fillMaxWidth(),
-                    text = "Element number $index",
-                    fontSize = 16.sp)
+                        .size(40.dp)
+                        .clip(CircleShape)
+                        .background(Color.Gray)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Text(
+                        modifier = Modifier
+                            .padding(10.dp)
+                            .fillMaxWidth(),
+                        text = "That a simple example for chat number $index. I just want to see this text on two lines so that you can try to make a restriction",
+                    )
+                }
             }
         }
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ChatMessage(index: Int) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        // Картинка пользователя
-//        Image(
-//            painter = painterResource(id = R.drawable.111),
-//            contentDescription = "User  Avatar",
-//            modifier = Modifier
-//                .size(40.dp)
-//                .clip(CircleShape)
-//        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        // Сообщение
-        Column {
-            Text(
-                text = "That a simple example for chat number $index. I just want to see this text on two lines so that you can try to make a restriction",
-                fontSize = 14.sp,
-                color = Color.Black
-            )
-        }
-
-    }
-
-
-@Composable
 fun FullScaffoldExample() {
-    val scope = rememberCoroutineScope()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -109,29 +84,34 @@ fun FullScaffoldExample() {
             )
         },
         bottomBar = {
-            BottomAppBar {
-                IconButton(onClick = { /* Действие */ }) {
-                    Icon(Icons.Filled.Home, contentDescription = "Home Icon")
+
+                BottomAppBar {
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start)  {
+                    IconButton(onClick = { /* Действие */ }) {
+                        Icon(Icons.Filled.DateRange, contentDescription = "Home Icon")
+                    }
+                    IconButton(onClick = { /* Действие */ }) {
+                        Icon(Icons.Filled.Home, contentDescription = "Home Icon")
+                    }
+                    IconButton(onClick = { /* Действие */ }) {
+                        Icon(Icons.Filled.AccountCircle, contentDescription = "Home Icon")
+                    }
                 }
             }
         },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { /* Действие */ }) {
-                Icon(Icons.Filled.Add, contentDescription = "Add")
-            }
-        }
+
+
     ) { padding ->
         padding
-        Text("Main Content", Modifier.padding(16.dp))
+        ChatMessage()
     }
 }
 
-}
+@Preview
+@Composable
+private fun PreviewChatScreen() {
+    FullScaffoldExample()
 
-    @Preview
-    @Composable
-    private fun  PreviewChatScreen() {
-    ChatScreen()
 
 
 }
