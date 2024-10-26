@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.BottomAppBar
@@ -39,6 +40,7 @@ import com.example.myapplication.R
 fun ChatMessage() {
     LazyColumn()
     {
+
         items(100) { index ->
             Row(
                 modifier = Modifier
@@ -58,7 +60,7 @@ fun ChatMessage() {
                 Column {
                     Text(
                         modifier = Modifier
-                            .padding(10.dp)
+                            .padding(5.dp)
                             .fillMaxWidth(),
                         text = "That a simple example for chat number $index. I just want to see this text on two lines so that you can try to make a restriction",
                     )
@@ -75,31 +77,47 @@ fun FullScaffoldExample() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Thats a top bar") },
+                title = { Text("My First App") },
+
                 navigationIcon = {
-                    IconButton(onClick = { }) {
-                        Icon(Icons.Filled.Menu, contentDescription = "Menu")
-                    }
+                    Icon(
+                        Icons.Filled.FavoriteBorder,
+                        contentDescription = null,
+                        modifier = Modifier.size(40.dp),
+                        tint = Color.Gray
+                    )
                 }
             )
         },
         bottomBar = {
 
-                BottomAppBar {
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start)  {
-                    IconButton(onClick = { /* Действие */ }) {
-                        Icon(Icons.Filled.DateRange, contentDescription = "Home Icon")
-                    }
-                    IconButton(onClick = { /* Действие */ }) {
-                        Icon(Icons.Filled.Home, contentDescription = "Home Icon")
-                    }
-                    IconButton(onClick = { /* Действие */ }) {
-                        Icon(Icons.Filled.AccountCircle, contentDescription = "Home Icon")
-                    }
+            BottomAppBar {
+                Row(
+                    modifier = Modifier.padding(top = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly, // Выравнивание иконок
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Filled.DateRange,
+                        contentDescription = null,
+                        modifier = Modifier.size(40.dp),
+                        tint = Color.Gray
+                    )
+                    Icon(
+                        Icons.Filled.Home,
+                        contentDescription = null,
+                        modifier = Modifier.size(40.dp),
+                        tint = Color.Gray
+                    )
+                    Icon(
+                        Icons.Filled.AccountCircle,
+                        contentDescription = null,
+                        modifier = Modifier.size(40.dp),
+                        tint = Color.Gray
+                    )
                 }
             }
-        },
-
+        }
 
     ) { padding ->
         padding
