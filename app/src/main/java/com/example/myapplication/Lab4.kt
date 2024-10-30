@@ -43,7 +43,7 @@ fun ChatMessage() {
 
         items(100) { index ->
             Row(
-                modifier = Modifier
+                  modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
